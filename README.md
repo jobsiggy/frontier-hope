@@ -79,7 +79,7 @@ Paste text you can publicly access, its organization, publication date, platform
 The deliverable is `index.html`; no build command or generated assets are needed.
 
 - **Cloudflare Pages:** create a Pages project connected to the repository and deploy the repository root. Leave the build command empty; set the output directory to `/` (or the root directory in the provider's UI).
-- **GitHub Pages:** publish the repository root from the desired branch in the repository's Pages settings. The `index.html` file is the site entry point.
+- **GitHub Pages:** `.github/workflows/deploy-pages.yml` stages and deploys only `index.html` (plus `.nojekyll`) on every push to `main`; it also supports manual runs from the Actions tab. In **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source once. Merge this setup to `main` to trigger a deployment, then open the workflow's `github-pages` environment or **Settings → Pages** for the published URL (expected project URL: `https://jobsiggy.github.io/frontier-hope/`). The root `.nojekyll` file keeps Pages from running Jekyll over this static app.
 
 ## Verification checklist
 
